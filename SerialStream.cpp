@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "SerialStream.hpp"
 
-using namespace trajectory_publisher;
+using namespace ass;
 
 #define htons(x) ( ((x)<< 8 & 0xFF00) | \
                    ((x)>> 8 & 0x00FF) )
@@ -81,8 +81,8 @@ void SerialStream::Message::setPacketCount(uint8_t iCount)
   }
 }
 
-SerialStream::SerialStream()
-: recvMsgQueue(), recvMsgPool(), sendMsgQueue(), sendMsgPool(), recvPktCount(0), sendPktCount(0),
+SerialStream::SerialStream(int iFD)
+: fd(iFD), recvMsgQueue(), recvMsgPool(), sendMsgQueue(), sendMsgPool(), recvPktCount(0), sendPktCount(0),
   recvPkt(nullptr), readPtr(nullptr), readCount(0), readState(IDLE),
   sendPkt(nullptr), writePtr(nullptr), writeCount(0), writeState(IDLE)
 { }
