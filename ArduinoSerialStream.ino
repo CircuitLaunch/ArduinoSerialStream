@@ -4,7 +4,7 @@
 #include "SerialStream.hpp"
 
 using namespace std;
-using namespace trajectory_publisher;
+using namespace ass;
 
 SerialStream ss;
 
